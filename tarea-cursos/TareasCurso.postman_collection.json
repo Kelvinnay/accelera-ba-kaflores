@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "99408f27-b1cd-499e-b17d-fff397aa1d0c",
+		"name": "TareasCurso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8802487"
+	},
+	"item": [
+		{
+			"name": "saveUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWx2aW4iLCJpYXQiOjE2NTg1NDE1MDUsImV4cCI6MTY1ODU0MTY4NX0.rilZ1HvupjIG2pVyf2LwAfeMp7wnPlc4lWnndpv4fCdrLmlY4qml7iQsnxulSDQecMDaHJNuwL36GV5faqL4Sg",
+						"type": "text"
+					},
+					{
+						"key": "Apellido",
+						"value": "Flores",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"andrea\",\n    \"email\": \"andrea@gmail.com\",\n    \"userType\": \"TEACHER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/main",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/main",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCursos - Anuncios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/main/cursos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"main",
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNotas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/task/grade/4/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"grade",
+						"4",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registroNotas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/task/grade?idNota=4&newNota=6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"grade"
+					],
+					"query": [
+						{
+							"key": "idNota",
+							"value": "4"
+						},
+						{
+							"key": "newNota",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
