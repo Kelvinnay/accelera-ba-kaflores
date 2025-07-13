@@ -1,4 +1,6 @@
 
+
+
 -- Insertar Usuarios (Teacher y Student)
 INSERT INTO users (name, email, user_type) VALUES ('Juan Pérez', 'juan.perez@example.com', 'TEACHER');
 INSERT INTO users (name, email, user_type) VALUES ('María García', 'maria.garcia@example.com', 'TEACHER');

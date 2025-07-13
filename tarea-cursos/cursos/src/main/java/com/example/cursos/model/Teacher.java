@@ -6,17 +6,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 @NoArgsConstructor
 @Data
-@Getter
-@Setter
 @Entity
 @DiscriminatorValue("TEACHER")
 //@Table(name = "TEACHERS")
-public class Teacher extends User {
+public class Teacher extends User implements Serializable {
     @OneToMany(mappedBy = "teacher",fetch = FetchType.LAZY)
     List<Course> courses;
 }

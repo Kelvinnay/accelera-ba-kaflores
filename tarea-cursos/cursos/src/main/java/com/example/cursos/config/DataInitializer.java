@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 @Component
-public class DataInitializer implements CommandLineRunner {
+public class DataInitializer{// implements CommandLineRunner {
 
     private final UserRepository userRepository;
     private final CourseRepository courseRepository;
@@ -29,9 +29,10 @@ public class DataInitializer implements CommandLineRunner {
         this.studentCourseRepository=studentCourseRepository;
         this.gradeRepository=gradeRepository;
     }
-
+/*
     @Override
     public void run(String... args) throws Exception {
+
         if (userRepository.count() == 0) { // Only insert if table is empty
            // Teacher juan = new Teacher();
            // juan.setName("Juan Pérez");
@@ -186,4 +187,5 @@ public class DataInitializer implements CommandLineRunner {
 
         }
     }
+        */
 }

@@ -24,13 +24,13 @@ public class UserService {
             User teacher = new Teacher();
             teacher.setName(user.getName());
             teacher.setEmail(user.getEmail());
-            teacher.setUserType(user.getUserType());
+            //teacher.setUserType(user.getUserType());
             responset = userRepository.save(teacher);
         }else {
             User student = new Student();
             student.setName(user.getName());
             student.setEmail(user.getEmail());
-            student.setUserType(user.getUserType());
+            //student.setUserType(user.getUserType());
             responset = userRepository.save(student);
 
         }
