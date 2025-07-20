@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "7051097f-77ef-48af-8916-34fbc6706aba",
+		"name": "tienda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8802487"
+	},
+	"item": [
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "Crear order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientEmail\":\"kelvin@gmail.com\",\n    \"productShopList\":[\n        {\n            \"name\":\"Aceite\",\n            \"quantity\":10\n        },\n        {\n            \"name\":\"Arroz\",\n            \"quantity\":10\n        }\n    ]\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pathBaseUrlOrder}}/api/v1/order",
+							"host": [
+								"{{pathBaseUrlOrder}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"clientEmail\":\"kelvin@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Crear cliente nuevo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Flores\",\n    \"email\":\"flores@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pathBaseUrlOrder}}/api/v1/order/client",
+							"host": [
+								"{{pathBaseUrlOrder}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"client"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Crear Producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Arroz\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pathBaseUrlProduct}}/api/v1/product",
+							"host": [
+								"{{pathBaseUrlProduct}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Producto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Aceite\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Obtener Producto",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Aceite\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pathBaseUrlProduct}}/api/v1/product/Arroz",
+							"host": [
+								"{{pathBaseUrlProduct}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"Arroz"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Producto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Aceite\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Actualizar Producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantitySold\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pathBaseUrlProduct}}/api/v1/product/6879b3802e31523700ffd677",
+							"host": [
+								"{{pathBaseUrlProduct}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"6879b3802e31523700ffd677"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Producto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Aceite\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/v1/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "clients",
+			"item": [
+				{
+					"name": "Crear cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"andrea\",\n    \"email\": \"andrea@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{pathBaseUrlClient}}/api/v1/client",
+							"host": [
+								"{{pathBaseUrlClient}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener cliente x email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{pathBaseUrlClient}}/api/v1/client/kelvin@gmail.com",
+							"host": [
+								"{{pathBaseUrlClient}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"client",
+								"kelvin@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "pathBaseUrlOrder",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "pathBaseUrlProduct",
+			"value": "http://localhost:8082",
+			"type": "string"
+		},
+		{
+			"key": "pathBaseUrlClient",
+			"value": "http://localhost:8081",
+			"type": "string"
+		}
+	]
+}

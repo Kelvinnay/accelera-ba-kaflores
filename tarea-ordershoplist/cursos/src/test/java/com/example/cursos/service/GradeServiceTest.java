@@ -103,7 +103,6 @@ public class GradeServiceTest {
         grade2.setId(101);
         grade2.setNota("90.5");
         grade2.setStudentCourse(sc2);
-        
 
         List<Grade> mockGradeList = new ArrayList<>();
         mockGradeList.add(grade1);
