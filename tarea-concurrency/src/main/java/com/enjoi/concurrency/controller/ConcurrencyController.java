@@ -73,6 +73,42 @@ public class ConcurrencyController {
         }
     }
 
+    @GetMapping("tarea/combine/non-blocking")
+    public CompletableFuture<ResponseEntity<String>> combineSmsEmailNonBlocking() {
+        CompletableFuture<Boolean> emailFuture = emailService.sendEmailDos();
+        CompletableFuture<Boolean> smsFuture = smsService.sendSms();
+
+        log.info("Non-blocking combine: Initiated tasks.");
+
+        return CompletableFuture.allOf(emailFuture, smsFuture)
+                .thenApply(ignoredVoid -> { // This runs after both futures complete
+                    try {
+                        boolean emailResult = emailFuture.get(); // These get() calls are non-blocking here
+                        boolean smsResult = smsFuture.get();
+
+                        if (emailResult && smsResult) {
+                            String successMessage = "✅ Successfully sent both email and SMS.";
+                            System.out.println(successMessage);
+                            return new ResponseEntity<>(successMessage, HttpStatus.OK);
+                        } else {
+                            String failureMessage = "❌ One or more asynchronous tasks failed.";
+                            System.out.println(failureMessage);
+                            return new ResponseEntity<>(failureMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+                        }
+                    } catch (InterruptedException | ExecutionException e) {
+                        log.error("Error retrieving results: " + e.getMessage(), e);
+                        String errorMessage = "❌ An error occurred during task execution.";
+                        System.out.println(errorMessage);
+                        return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+                    }
+                })
+                .exceptionally(ex -> { // Handle any exceptions from allOf or the previous stage
+                    log.error("An unexpected error occurred in combineSmsEmailNonBlocking: " + ex.getMessage(), ex);
+                    String errorMessage = "❌ An unexpected error occurred: " + ex.getMessage();
+                    return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+                });
+    }
+
 
     @GetMapping("async")
     public ResponseEntity<Void> testSendEmail(){
